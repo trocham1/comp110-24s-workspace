@@ -6,21 +6,22 @@ __author__ = "730711485"
 from exercises.ex05.dictionary import invert, favorite_color, count, alphabetizer, update_attendance
 
 
-def test_invert_normal_letters() -> None:
+def test_invert_use_case() -> None:
     """This function should return an inverted dictionary of the letters."""
     dict1: dict[str, str] = {'a': 'z', 'b': 'y', 'c': 'x'}
     dict2: dict[str, str] = {'z': 'a', 'y': 'b', 'x': 'c'}
-    assert invert(dict1) == dict2
+    dict3: dict[str, str] = invert(dict1)
+    assert dict3 == dict2
 
 
-def test_invert_normal_words() -> None:
+def test_invert_use_case_1() -> None:
     """This function return an inverted dictionary of the words."""
-    dict1:  dict[str, str] = {'apple': 'cat'}
+    dict1: dict[str, str] = {'apple': 'cat'}
     dict2: dict[str, str] = {'cat': 'apple'}
     assert invert(dict1) == dict2
 
 
-def test_invert_edge_case() -> None: # Checked this one again.
+def test_invert_edge_case() -> None:  # Checked this one again.
     """This function should return an inverted dictionary containing blank."""
     dict1: dict[str, str] = {'apple': ""}
     dict2: dict[str, str] = {"": 'apple'}
@@ -52,7 +53,7 @@ def test_favorite_color_edge_case() -> None:
 def test_count_use_case1() -> None:
     """This function return the count for a list of same letters."""
     list1: list[str] = ["a", "a", "a"]
-    dict1: dict[str, int]= {"a": 3}
+    dict1: dict[str, int] = {"a": 3}
     assert count(list1) == dict1
 
 
@@ -111,8 +112,8 @@ def test_update_attendance_2() -> None:
 
 def test_update_attendance_edge_case() -> None:
     """This function return a dictionary from a empty dictionary."""
-    attendance_log: dict = {"": [""]}
-    day = "Tuesday"
-    student = "Kaleb"
-    student_list: list[str] = [{'': [''], 'Tuesday': ['Kaleb']}]
-    assert update_attendance(attendance_log, day, student) == student_list
+    attendance_log_1: dict = {}
+    day_1 = "Tuesday"
+    student_1 = "Vrinda"
+    student_list: dict = {'Tuesday': ['Vrinda']}
+    assert update_attendance(attendance_log_1, day_1, student_1) == student_list

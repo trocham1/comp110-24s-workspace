@@ -64,16 +64,19 @@ alphabetizer(["Python", "sugar", "Turtle", "party", "table"])
 
 def update_attendance(dict6: dict[str, list[str]], day: str, student: str) -> None:
     """This function mutate and return a dictionary."""
-    student_list: list[str] = []
+    student_list_dict: dict[str, list[str]] = {}
     if day in dict6:
-        student_list = dict6[day]
-        student_list.append(student)
-        dict6[day] = student_list
+        name_list: list[str] = []
+        name_list = dict6[day]
+        name_list.append(student)
+        student_list_dict[day] = name_list
     else:
-        dict6[day] = student
+        name_list: list[str] = []
+        name_list.append(student)
+        dict6[day] = name_list
 
 
-attendance_log: dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
+attendance_log: dict = {}
 update_attendance(attendance_log, "Tuesday", "Vrinda")
-update_attendance(attendance_log, "Wednesday", "Kaleb")
+# update_attendance(attendance_log, "Wednesday", "Kaleb")
 print(attendance_log)
